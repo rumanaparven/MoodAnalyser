@@ -33,5 +33,15 @@ namespace UnitTestProject1
             string actual = mood.AnalayseMood();
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void TestMethod4()
+        {
+            string expected = "HAPPY";
+            string message = null;
+            Mood mood = new Mood(message);
+            string actual = mood.AnalayseMood();
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
