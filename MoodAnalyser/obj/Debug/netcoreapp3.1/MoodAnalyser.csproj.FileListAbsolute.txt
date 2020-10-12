@@ -1,0 +1,13 @@
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\bin\Debug\netcoreapp3.1\MoodAnalyser.exe
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\bin\Debug\netcoreapp3.1\MoodAnalyser.deps.json
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\bin\Debug\netcoreapp3.1\MoodAnalyser.runtimeconfig.json
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\bin\Debug\netcoreapp3.1\MoodAnalyser.runtimeconfig.dev.json
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\bin\Debug\netcoreapp3.1\MoodAnalyser.dll
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\bin\Debug\netcoreapp3.1\MoodAnalyser.pdb
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\obj\Debug\netcoreapp3.1\MoodAnalyser.csprojAssemblyReference.cache
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\obj\Debug\netcoreapp3.1\MoodAnalyser.AssemblyInfoInputs.cache
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\obj\Debug\netcoreapp3.1\MoodAnalyser.AssemblyInfo.cs
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\obj\Debug\netcoreapp3.1\MoodAnalyser.csproj.CoreCompileInputs.cache
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\obj\Debug\netcoreapp3.1\MoodAnalyser.dll
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\obj\Debug\netcoreapp3.1\MoodAnalyser.pdb
+C:\Users\RUMANA\source\repos\MoodAnalyser\MoodAnalyser\obj\Debug\netcoreapp3.1\MoodAnalyser.genruntimeconfig.cache
