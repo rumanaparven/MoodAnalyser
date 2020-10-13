@@ -19,16 +19,16 @@ namespace MoodAnalyser
         {
             try
             {
-                if (this.message.Contains("SAD"))
-                    return "SAD";
+                if (this.message.Equals(string.Empty))
+                    throw new MoodAnalyserException(MoodAnalyserException.TypeOfException.EMPTYSTRING_ENTRY,"string should not be empty");
                 else if (this.message.Contains("HAPPY"))
-                    return "SAD";
-                else
                     return "HAPPY";
+                else
+                    return "SAD";
             }
-            catch
+            catch(NullReferenceException)
             {
-                return "HAPPY";
+                throw new MoodAnalyserException(MoodAnalyserException.TypeOfException.NULL_ENTRY, "string should not be null");
             }
         }
     }

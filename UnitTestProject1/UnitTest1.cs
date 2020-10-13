@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoodAnalyser;
+using System.Reflection;
+
 namespace UnitTestProject1
 {
     [TestClass]
@@ -19,29 +21,46 @@ namespace UnitTestProject1
         public void TestMethod2()
         {
             string expected = "HAPPY";
-            string message = "I am in any mood";
-            Mood mood = new Mood(message);
-            string actual = mood.AnalayseMood();
-            Assert.AreEqual(expected, actual);
-        }
-        [TestMethod]
-        public void TestMethod3()
-        {
-            string expected = "SAD";
             string message = "I am in HAPPY mood";
             Mood mood = new Mood(message);
             string actual = mood.AnalayseMood();
             Assert.AreEqual(expected, actual);
         }
+        
         [TestMethod]
         public void TestMethod4()
         {
-            string expected = "HAPPY";
+            string expected = "string should not be null";
             string message = null;
-            Mood mood = new Mood(message);
-            string actual = mood.AnalayseMood();
-            Assert.AreEqual(expected, actual);
+            try
+            {
+                Mood mood = new Mood(message);
+                
+            }
+            catch(MoodAnalyserException ce)
+            {
+                string actual = ce.Message;
+                Assert.AreEqual(expected, actual);
+            }
+           
         }
+        [TestMethod]
+        public void TestMethod5()
+        {
+            string message = " ";
+            MoodAnalyserException.TypeOfException expected = MoodAnalyserException.TypeOfException.EMPTYSTRING_ENTRY;
+            try
+            {
+                Mood mood = new Mood(message);
+               
+            }
+            catch (MoodAnalyserException ce)
+            {
+                Assert.AreEqual(expected, ce.type);
+            }
+        }
+
+
 
     }
 }
