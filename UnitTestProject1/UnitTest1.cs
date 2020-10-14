@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoodAnalyser;
+using System;
 using System.Reflection;
 
 namespace UnitTestProject1
@@ -58,6 +59,15 @@ namespace UnitTestProject1
             {
                 Assert.AreEqual(expected, ce.type);
             }
+        }
+        [TestMethod]
+        public void TestMethod6()
+        {
+            string message = null;
+            Object obj = MoodAnalyzerFactory.CreateMoodAnalyse("MoodAnalyser.Mood", "Mood");
+            Object expected = new Mood(message);
+            obj.Equals(expected);
+            
         }
 
 
