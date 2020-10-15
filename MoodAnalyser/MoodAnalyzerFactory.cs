@@ -73,5 +73,24 @@ namespace MoodAnalyser
                 throw new MoodAnalyserException(MoodAnalyserException.TypeOfException.NO_SUCH_METHOD, "method not found");
             }
         }
+        public static string SetMoodDynamically(string message,string fieldName)
+        {
+            try
+            {
+                if (message == null)
+                {
+                    throw new MoodAnalyserException(MoodAnalyserException.TypeOfException.NULL_ENTRY, "null entry");
+                }
+                Mood obj = new Mood();
+                Type type = typeof(Mood);
+                FieldInfo field = type.GetField(fieldName);
+                field.SetValue(obj, message);
+                return obj.message;
+            }
+            catch(NullReferenceException)
+            {
+                throw new MoodAnalyserException(MoodAnalyserException.TypeOfException.NO_SUCH_FIELD, "Field not found");
+            }
+        }
     }
 }

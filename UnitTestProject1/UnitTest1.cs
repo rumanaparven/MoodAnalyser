@@ -73,7 +73,7 @@ namespace UnitTestProject1
         public void TestMethod7()
         {
             string message = "HAPPY";
-            object obj = MoodAnalyzerFactory.CreateMoodAnalyseWithParametrizedConstructor("MoodAnalyser.Mood", "Mood",message);
+            object obj = MoodAnalyzerFactory.CreateMoodAnalyseWithParametrizedConstructor("MoodAnalyser.Mood", "Mood", message);
             object expected = new Mood(message);
             obj.Equals(expected);
 
@@ -85,6 +85,26 @@ namespace UnitTestProject1
             string expected = "HAPPY";
             Assert.AreEqual(obj, expected);
 
+        }
+        [TestMethod]
+        public void TestMethod9()
+        {
+            string actual = MoodAnalyzerFactory.SetMoodDynamically("I am SAD", "message");
+            string expected = "I am SAD";
+            Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void TestMethod10()
+        {
+            MoodAnalyserException.TypeOfException expected = MoodAnalyserException.TypeOfException.NO_SUCH_FIELD;
+            try
+            {
+                MoodAnalyzerFactory.SetMoodDynamically("I am SAD", "message");
+            }
+            catch(MoodAnalyserException ma)
+            {
+                Assert.AreEqual(expected, ma.type);
+            }
         }
     }
 }

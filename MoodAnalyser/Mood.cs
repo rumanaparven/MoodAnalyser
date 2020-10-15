@@ -5,7 +5,7 @@ namespace MoodAnalyser
 {
     public class Mood
     {
-        private string message;
+        public string message;
         public Mood()
         {
 
