@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoodAnalyser;
 using System;
-using System.Reflection;
+
 
 namespace UnitTestProject1
 {
@@ -27,7 +27,7 @@ namespace UnitTestProject1
             string actual = mood.AnalayseMood();
             Assert.AreEqual(expected, actual);
         }
-        
+
         [TestMethod]
         public void TestMethod4()
         {
@@ -36,14 +36,14 @@ namespace UnitTestProject1
             try
             {
                 Mood mood = new Mood(message);
-                
+
             }
-            catch(MoodAnalyserException ce)
+            catch (MoodAnalyserException ce)
             {
                 string actual = ce.Message;
                 Assert.AreEqual(expected, actual);
             }
-           
+
         }
         [TestMethod]
         public void TestMethod5()
@@ -53,7 +53,7 @@ namespace UnitTestProject1
             try
             {
                 Mood mood = new Mood(message);
-               
+
             }
             catch (MoodAnalyserException ce)
             {
@@ -67,20 +67,24 @@ namespace UnitTestProject1
             Object obj = MoodAnalyzerFactory.CreateMoodAnalyse("MoodAnalyser.Mood", "Mood");
             Object expected = new Mood(message);
             obj.Equals(expected);
-            
+
         }
         [TestMethod]
         public void TestMethod7()
         {
             string message = "HAPPY";
-            Object obj = MoodAnalyzerFactory.CreateMoodAnalyseWithParametrizedConstructor("MoodAnalyser.Mood", "Mood");
-            Object expected = new Mood(message);
+            object obj = MoodAnalyzerFactory.CreateMoodAnalyseWithParametrizedConstructor("MoodAnalyser.Mood", "Mood",message);
+            object expected = new Mood(message);
             obj.Equals(expected);
 
         }
+        [TestMethod]
+        public void TestMethod8()
+        {
+            string obj = MoodAnalyzerFactory.InvokeMoodMethod("AnalayseMood", "Iam HAPPY");
+            string expected = "HAPPY";
+            Assert.AreEqual(obj, expected);
 
-
-
-
+        }
     }
 }

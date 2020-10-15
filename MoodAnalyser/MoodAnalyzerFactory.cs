@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+
+
 using System.Reflection;
-using System.Text;
+
 using System.Text.RegularExpressions;
 
 namespace MoodAnalyser
@@ -32,7 +33,7 @@ namespace MoodAnalyser
             }
         }
 
-        public static object CreateMoodAnalyseWithParametrizedConstructor(string className, string constructor)
+        public static object CreateMoodAnalyseWithParametrizedConstructor(string className, string constructor,string message)
         {
             Type type = typeof(Mood);
 
@@ -41,7 +42,7 @@ namespace MoodAnalyser
                 if(type.Name.Equals(constructor))
                 {
                     ConstructorInfo cons = type.GetConstructor(new[] { typeof(string) });
-                    object instance = cons.Invoke(new object[] { "HAPPY" });
+                    object instance = cons.Invoke(new object[] { message });
                     return instance;
                 }
                 else 
@@ -53,6 +54,23 @@ namespace MoodAnalyser
             else
             {
                 throw new MoodAnalyserException(MoodAnalyserException.TypeOfException.NO_SUCH_CLASS, "Class not found");
+            }
+        }
+        public static string InvokeMoodMethod(string methodName,string message)
+        {
+            
+            try
+            {
+                Type type = typeof(Mood);
+                object MoodObject = MoodAnalyzerFactory.CreateMoodAnalyseWithParametrizedConstructor(type.FullName, type.Name,message);
+                MethodInfo method = type.GetMethod(methodName);
+                object instance = method.Invoke(MoodObject,null);
+                return instance.ToString();
+            }
+           
+            catch(NullReferenceException)
+            {
+                throw new MoodAnalyserException(MoodAnalyserException.TypeOfException.NO_SUCH_METHOD, "method not found");
             }
         }
     }
